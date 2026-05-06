@@ -1,0 +1,309 @@
+/* 1. 구글에서 예쁜 폰트 하나 가져오기 (문서 상단에 넣으세요) */
+@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Noto+Sans+KR:wght@400;700&display=swap');
+
+/* 1. 웹페이지 전체의 기본 배경과 글자색 설정 */
+body {
+  font-family: sans-serif;
+  background: hwb(0 0% 100%);
+  color: #ffffff;
+  text-align: center;
+  margin: 0; /* 브라우저 기본 바깥 여백 제거 */
+  padding: 0; /* 브라우저 기본 안쪽 여백 제거 */
+}
+
+/* 2. 내용을 담는 바구니(컨테이너) 설정 */
+.container {
+  max-width: 500px; /* 가로 폭이 너무 커지지 않게 최대 500px로 제한 */
+  margin: auto; /* 화면 정중앙에 배치 */
+  padding: 20px; /* 내용물과 테두리 사이의 여유 공간 */
+}
+
+/* 3. 메인 제목 스타일 (아웃라인 효과 적용) */
+h1 {
+  font-size: 200px; /*이거 픽셀을 바꿔도 글자 크기가 변하지 않음*/
+  
+  color: rgb(255, 255, 255);
+}
+
+/* 4. 진행 상태 표시 (예: 1/10 질문) */
+#progress {
+  font-size: 18px;
+  margin-bottom: 10px; /* 아래 질문과의 간격 */
+  color: #aaa;
+}
+
+/* 5. 질문 텍스트 스타일 */
+#question {
+  font-size: 22px;
+  margin: 20px 0; /* 위아래로 20px씩 간격 */
+  line-height: 1.5; /* 줄 간격을 넓혀서 읽기 편하게 함 */
+}
+
+/* 6. 선택지 버튼들 스타일 */
+#buttons button {
+  display: block; /* 버튼 하나가 한 줄을 다 차지하게 함 */
+  width: 90%; /* 가로 길이를 꽉 채움 */
+  margin: 10px 0; /* 버튼끼리 위아래 간격 */
+  padding: 18px; /* 버튼을 누르기 좋게 도톰하게 만듦 */
+  font-size: 18px;
+  border: none; /* 기본 테두리 제거 */
+  background: #ff4d6d; /* 버튼 배경색 (분홍색 계열) */
+  color: white; /* 버튼 글자색 */
+  border-radius: 12px; /* 버튼 모서리를 둥글게 */
+  cursor: pointer; /* 마우스를 올리면 손가락 모양으로 변경 */
+}
+
+/* 7. 버튼에 마우스를 올렸을 때(Hover) 효과 */
+#buttons button:hover {
+  background: #ff88a2; /* 색상이 좀 더 진해지면서 누르고 싶게 만듦,, 색깔 안바뀌는데? 26.5.5 색깔바꿈 #buttons를 앞에 붙여서 해결.*/
+}
+
+/* 8. 화면에서 숨기기 기능 (자바스크립트에서 주로 사용) */
+.hidden {
+  display: none !important; /* 이 클래스가 붙으면 화면에서 완전히 사라짐 */
+}
+
+
+/* 9. 결과 화면 스타일 */
+
+/* 1. 구글에서 예쁜 폰트 하나 가져오기 (문서 상단에 넣으세요) */
+@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Noto+Sans+KR:wght@400;700&display=swap');
+
+/* 결과 박스 전체 외관 수정 */
+#result-box {
+  padding: 40px 20px;       /* 여백을 더 넓게 줘서 답답함을 해소 */
+  background: #ffffff;      /* 배경을 흰색으로 */
+  border-radius: 40px;      /* 모서리를 더 둥글게 */
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1); /* 입체감을 주는 그림자 추가 */
+  margin: 20px auto;
+  max-width: 500px;         /* 화면이 너무 퍼지지 않게 잡아줌 */
+}
+
+/* 결과 제목 수정 */
+#result-title {
+  /* 폰트 크기를 28px에서 32px로 키우고 강조 */
+  font-family: 'Black Han Sans', sans-serif; /* 제목용 두꺼운 폰트 추가 */
+  font-size: 50px;          
+  font-weight: 800;
+  color: #ff4d4d;           /* 기존의 강렬한 빨간색 유지 */
+  margin-bottom: 30px;      /* 본문과의 간격을 더 벌림 */
+  line-height: 1.3;
+  word-break: keep-all;     /* 한글 단어가 중간에 끊기지 않게 함 */
+}
+
+/* 결과 내용 수정 */
+#result-desc {
+  font-family: 'Noto Sans KR', sans-serif; /* 본문용 깔끔한 폰트 */
+  font-size: 20px;          /* 16px에서 18px로 키워 시원하게 보이게 함 */
+  color: #000000;           /* 너무 검정색보다는 진한 회색이 눈이 편함 */
+  line-height: 1.8;         /* 줄 간격을 1.6에서 1.8로 늘려 가독성 대폭 향상 */
+  text-align: left;         /* 긴 설명글은 왼쪽 정렬이 읽기 훨씬 편함 */
+  background: #f1cece;      /* 내용 뒤에 연한 회색 박스 깔기 */
+  padding: 20px;            /* 박스 안쪽 여백 */
+  border-radius: 10px;      /* 박스 모서리 둥글게 */
+  white-space: pre-line;    /* 줄바꿈 유지 */
+}
+
+/* 10. 반응형 설정 (태블릿/모바일용) */
+@media (max-width: 768px) {
+  #question {
+    font-size: 22px; /* 화면이 작아져도 질문 크기 유지 */
+  }
+
+  button {
+    font-size: 18px;
+    padding: 18px; /* 모바일에서 터치하기 편하게 크게 유지 */
+  }
+}
+
+/* 11. 첫 시작 화면 설정 */
+#start-screen img {
+  width: 100%;      /* 화면 너비에 맞춤 */ 
+  max-width: 400px; /* ← 최대 크기 제한 */
+  height: auto; /* 가로세로 비율 유지 */
+  margin-bottom: 20px;
+}
+
+/* 시작 버튼 스타일 */
+#start-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  height: 100vh;
+  text-align: center;
+  padding: 20px;
+}
+
+
+#start-screen h1 {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+#start-screen button {
+  font-size: 22px;
+  padding: 18px 35px;
+  border-radius: 10px;
+  background: #ff4d6d;
+  color: white;
+}
+
+/* 모든 버튼의 부드러운 움직임 효과 */
+button {
+  transition: all 0.2s ease; /* 색상 변경 등이 0.2초 동안 부드럽게 일어남 */
+  cursor: pointer;
+}
+
+/* 12. 이전 버튼 (디자인 차별화) */
+.prev-btn {
+  /* 위치 설정 */
+  display: inline-block;
+  margin-top: 30px;      /* 위 문항 버튼들과의 간격을 넉넉히 (30px) 띄움 */
+  margin-bottom: 20px;   /* 바닥과의 여유 공간 */
+
+  /* 색상 및 배경 */
+  background-color: #ffffff; /* 깨끗한 흰색 바탕 */
+  color: #000000;           /* 글자색은 차분한 회색 */
+  
+  /* 테두리 및 모양 */
+  border: 1.5px solid #dddddd; /* 아주 연한 회색 테두리 */
+  border-radius: 20px;         /* 알약 모양처럼 더 둥글게 해서 차별화 */
+  
+  /* 크기 및 폰트 */
+  padding: 10px 25px;      /* 좌우로 약간 길게 */
+  font-size: 14px;
+  font-weight: bold;
+  
+  /* 효과 */
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+/* 마우스를 올렸을 때 살짝 변하는 효과 */
+.prev-btn:hover {
+  background-color: #f8f8f8; /* 아주 살짝 어두워짐 */
+  border-color: #bbbbbb;     /* 테두리가 좀 더 진해짐 */
+  color: #333333;
+}
+
+/* 모바일 전용 추가 조정 */
+@media (max-width: 768px) {
+  .prev-btn {
+    position: static;      /* 고정 해제 */
+    width: auto;           /* 글자 길이에 맞춤 */
+    margin-left: 20px;     /* 왼쪽 여백 추가 */
+    margin-top: 40px;      /* 모바일에서는 간격을 더 넓게 (잘못 누름 방지) */
+  }
+}
+
+/* 모바일에서 버튼이 겹치지 않게 수정 */
+@media (max-width: 768px) {
+  .prev-btn {
+   position: static;      /* 고정 해제 */
+    width: auto;           /* 글자 길이에 맞춤 */
+    margin-left: 20px;     /* 왼쪽 여백 추가 */
+    margin-top: 40px;      /* 모바일에서는 간격을 더 넓게 (잘못 누름 방지) */
+  }
+}
+
+/* 카카오톡 공유하기 버튼 스타일 */
+.share-btn {
+  /* 1. 크기 및 모양 */
+  width: 100%;            /* 버튼 너비를 꽉 채우기 (조절 가능) */
+  max-width: 300px;       /* 너무 커지지 않게 최대 너비 제한 */
+  padding: 15px 25px;     /* 안쪽 여백을 줘서 버튼을 큼직하게 만듦 */
+  margin: 10px auto;      /* 위아래 간격 및 가운데 정렬 */
+  display: block;         /* 박스 형태로 배치 */
+
+  /* 2. 색상 및 테두리 (요청하신 스타일) */
+  background-color: #ffffff; /* 안쪽은 흰색 바탕 */
+  border: 2px solid #000000; /* 테두리는 2px 두께의 검정색 줄 */
+  color: #ff6b81;            /* 글자색은 분홍색 (예쁜 핑크색 코드) */
+
+  /* 3. 글자 스타일 */
+  font-size: 1.2rem;      /* 글씨를 크게 */
+  font-weight: bold;      /* 글씨를 두껍게 */
+  font-family: 'Noto Sans KR', sans-serif;
+  text-align: center;
+  text-decoration: none;
+
+  /* 4. 효과 */
+  border-radius: 50px;    /* 테두리를 아주 둥글게 (완전 둥근 버튼) */
+  cursor: pointer;        /* 마우스를 올리면 손가락 모양으로 */
+  transition: all 0.3s ease; /* 상태 변화를 부드럽게 (애니메이션) */
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* 약간의 그림자로 입체감 추가 */
+}
+
+/* 마우스를 올렸을 때(Hover) 효과 */
+.share-btn:hover {
+  background-color: #fff1f2; /* 살짝 분홍빛 도는 흰색으로 배경 변경 */
+  transform: translateY(-2px); /* 버튼이 살짝 위로 떠오르는 느낌 */
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15); /* 그림자 더 강조 */
+}
+
+/* 버튼을 클릭했을 때(Active) 효과 */
+.share-btn:active {
+  transform: translateY(1px); /* 눌리는 느낌 */
+}
+
+/* 화면 저장 버튼 스타일 (공유 버튼과 비슷하게) */
+.save-btn {
+  width: 100%;
+  max-width: 300px;
+  padding: 15px 25px;
+  margin: 10px auto;
+  display: block;
+
+  background-color: #ffffff;
+  border: 2px solid #000000;
+  color: #4b7bec;            /* 저장 버튼은 파란색 계열로 구분 */
+  
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.save-btn:hover {
+  background-color: #4b7bec;
+  color: #ffffff;
+  border: 2px solid #4b7bec;
+}
+
+/* 버튼들을 감싸는 컨테이너 (버튼이 두 개니까 정렬) */
+.btn-container {
+  display: flex;
+  flex-direction: column; /* 모바일에서는 세로로 나열 */
+  align-items: center;
+  gap: 10px;
+}
+
+/* 쿠팡 광고 컨테이너 */
+.coupang-ad {
+  margin-top: 30px;         /* 버튼들과의 간격 */
+  padding: 15px;
+  border-top: 1px solid #eee; /* 구분선 */
+  text-align: center;
+}
+
+/* 광고 안내 문구 (법적 필수 사항!) */
+.ad-notice {
+  font-size: 11px;
+  color: #999;
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+
+/* 배너 이미지 효과 */
+.coupang-ad img {
+  transition: transform 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.coupang-ad img:hover {
+  transform: scale(1.02); /* 마우스 올리면 살짝 커짐 */
+}

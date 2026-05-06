@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>연애력 테스트</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+  <script>
+  Kakao.init('eaf3a52f62166963eb2f76a5f5348681');
+</script>
+<!-- 화면 캡처를 위한 라이브러리 불러오기 -->
+<script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+ </head>
+<body>
+
+<div id="start-screen">
+  <h1>연애력 테스트</h1>
+
+  <img src="image.png" alt="메인 이미지" id="main-image">
+
+  <button onclick="startTest()">시작하기</button>
+</div>
+
+<!-- 질문 화면 -->
+<div id="question-box" class="hidden">
+  <div id="progress"></div>
+  <h2 id="question"></h2>
+  <div id="buttons"></div> <!-- 선택지 버튼들이 생성되는 곳 -->
+   <button class="prev-btn" onclick="prevQuestion()" id="prev-button">이전으로</button>
+</div>
+
+<div id="result-box" class="hidden">
+ <h2 id="result-title"></h2>
+<div id="result-desc">결과 상세 내용...</div>
+ <!-- 결과창(result-box) 내부의 버튼 -->
+  <div class="btn-container">
+<button class="share-btn" onclick="shareKakao()">
+  카톡으로 공유하기
+</button>
+<button class="save-btn" onclick="saveResult()">화면 저장</button>
+</div>
+<!-- ⭐ 쿠팡 파트너스 배너 구역 ⭐ -->
+    <div class="coupang-ad">
+      <iframe src="https://coupa.ng/cmKwDA" width="120" height="240" frameborder="0" scrolling="no" referrerpolicy="unsafe-url" browsingtopics></iframe> /*쿠방 배너 이미지*/
+        <p class="ad-notice">이 포스팅은 쿠팡 파트너스 활동의 일환으로, <br>이에 따른 일정액의 수수료를 제공받습니다.</p>
+        <a href="https://link.coupang.com/a/eDRbyR" target="_blank">
+            <!-- 여기에 쿠팡에서 제공하는 배너 이미지 주소를 넣거나 직접 만든 이미지를 넣으세요 -->
+            <img src="https://ads-partners.coupang.com/banners/XXXXX" alt="추천 상품" style="width: 100%; border-radius: 10px;">
+        </a>
+    </div>
+</div>
+
+<script src="./script.js"></script>
+</body>
+</html>
