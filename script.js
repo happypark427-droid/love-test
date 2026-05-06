@@ -359,15 +359,15 @@ function shareKakao() {
     Kakao.init('eaf3a52f62166963eb2f76a5f5348681');
   }
 
-  Kakao.Link.sendDefault({
+  Kakao.Share.sendDefault({
     objectType: 'feed',
     content: {
       title: '🔥 연애력 테스트',
       description: `내 점수는 ${score}점! 너도 해봐`,
-      imageUrl: 'https://jovial-lebkuchen-2f8554.netlify.app/image.jpg', 
+      imageUrl: 'https://love-test-xi-ruby.vercel.app/image.png', 
       link: {
-        mobileWebUrl: window.location.href,
-        webUrl: window.location.href
+        mobileWebUrl:'https://love-test-xi-ruby.vercel.app', // 결과 페이지가 아닌 메인 링크로 추천
+        webUrl: 'https://love-test-xi-ruby.vercel.app', // 결과 페이지가 아닌 메인 링크로 추천
       }
     },
     buttons: [
