@@ -5,9 +5,15 @@
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>연애력 테스트</title>
   <link rel="stylesheet" href="style.css">
-  <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+  <script src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.1/kakao.min.js" integrity="sha384-0ahS9W3S6eGLwoS9BFi7Z79gO96e6cK974Ds9wJuEdU74YWJiAXNtH0XG7vM6F81" crossorigin="anonymous"></script>
   <script>
-  Kakao.init('eaf3a52f62166963eb2f76a5f5348681');
+  // 카카오 SDK가 정상적으로 로드되었는지 확인 후 초기화
+  if (typeof Kakao !== 'undefined') {
+    if (!Kakao.isInitialized()) {
+      Kakao.init('eaf3a52f62166963eb2f76a5f5348681');
+      console.log('카카오 SDK 초기화 성공:', Kakao.isInitialized());
+    }
+  }
 </script>
 <!-- 화면 캡처를 위한 라이브러리 불러오기 -->
 <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
