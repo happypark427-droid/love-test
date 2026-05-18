@@ -22,16 +22,25 @@
 <body>
 
 <div id="start-screen">
-  <h1>연애력 테스트</h1>
+  <h1>연애력 테스트 남자버전</h1>
   <img src="image.png" alt="메인 이미지" id="main-image">
   <p class="intro-text">
     당신이 연애를 잘한다면 내 점수가 어느정도나 나올까 풀어보고 당신이 연애를 잘 못한다면 이걸 풀고 결과지를 받아 답안을 본 후에 연애력이 올라가기를 바란다. <br><span>-제작자-</span>
   </p>
   <button onclick="startTest()">시작하기</button>
+  
+ 
 </div>
 
 <div id="question-box" class="hidden">
   <div id="progress"></div>
+ <div class="question-ad" style="margin-top: 10px; margin-bottom: 20px; text-align: center; min-height: 100px;">
+  <ins class="kakao_ad_area" style="display:none;"  
+data-ad-unit = "DAN-DwGM4YkDO7m3E6G6"
+data-ad-width = "320"
+data-ad-height = "100"></ins>
+<script type="text/javascript" src="//t1.kakaocdn.net/kas/static/ba.min.js" async></script>
+</div>
   <h2 id="question"></h2>
   <div id="buttons"></div> <button class="prev-btn" onclick="prevQuestion()" id="prev-button">이전으로</button>
 </div>
@@ -43,13 +52,14 @@
   <hr style="margin: 20px 0; border: 0; border-top: 1px solid #eee;">
   
   <div class="detail-container">
-    <h3 style="font-size: 18px; color: #333; margin-bottom: 10px;">🔍 나만을 위한 맞춤 분석</h3>
-    <p id="result-detail" style="line-height: 1.6; color: #555; text-align: left; background: #fdfdfd; padding: 15px; border-radius: 10px;"></p>
+    <h3 style="font-size: 36px; color: #000000; margin-bottom: 15px;">🔍 나만을 위한 맞춤 분석</h3>
+    <p id="result-detail" style="line-height: 1.6; font-size: 20px; color: #000000; text-align:  left; background: #f8d6d6; padding: 15px; border-radius: 15px;"></p>
   </div>
   
   <div class="btn-container">
     <button class="share-btn" onclick="shareKakao()">카톡으로 공유하기</button>
     <button class="save-btn" onclick="saveResult()">화면 저장</button>
+    <button class="restart-btn" onclick="restartTest()">다시 테스트하기</button>
   </div>
 
   <div class="coupang-ad">

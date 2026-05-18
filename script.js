@@ -167,6 +167,11 @@ function showQuestion() {
   } else {
     prevBtn.classList.add("hidden");
   }
+  // 💡 함수가 끝나기 바로 직전, 맨 아래에 이 코드를 삽입하세요!
+  // 현재 문항 인덱스(0부터 시작)를 3으로 나눈 나머지가 0일 때만 (즉 1번, 4번, 7번, 10번, 13번 문제에서) 광고를 새로고침 합니다.
+  if (typeof KakaoAdFit !== 'undefined' && currentQuestionIndex % 3 === 0) {
+    KakaoAdFit.refresh();
+  }
 }
 
 /* 4. 이전 버튼 클릭 시 실행되는 기능 */
@@ -335,3 +340,10 @@ function saveResult() {
 }
 
 console.log("JS 연결됨");
+
+
+/* 10. 다시 테스트하기 기능 (새로고침 방식) */
+function restartTest() {
+  // 브라우저를 새로고침하여 모든 데이터(점수, 문제 번호 등)를 완벽하게 초기화합니다.
+  window.location.reload();
+}
