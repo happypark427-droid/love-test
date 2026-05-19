@@ -347,3 +347,30 @@ function restartTest() {
   // 브라우저를 새로고침하여 모든 데이터(점수, 문제 번호 등)를 완벽하게 초기화합니다.
   window.location.reload();
 }
+
+/* 11. URL 주소 복사 기능 */
+function copyUrl() {
+  // 현재 접속 중인 웹사이트의 주소(URL)를 자동으로 가져옵니다.
+  const currentUrl = window.location.href;
+
+  // 브라우저의 클립보드 API를 이용해 주소를 복사합니다.
+  navigator.clipboard.writeText(currentUrl)
+    .then(() => {
+      // 복사가 성공했을 때 사용자에게 알려주는 알림창(Alert)
+      alert("링크가 복사되었습니다! 원하는 곳에 붙여넣기(Ctrl+V) 하세요. 😊");
+    })
+    .catch(err => {
+      // 혹시 모를 에러 발생 시 대처용 구식 복사 방식 (안전장치)
+      const textArea = document.createElement("textarea");
+      textArea.value = currentUrl;
+      document.body.appendChild(textArea);
+      textArea.select();
+      try {
+        document.execCommand('copy');
+        alert("링크가 복사되었습니다! 원하는 곳에 붙여넣기(Ctrl+V) 하세요. 😊");
+      } catch (err) {
+        alert("복사에 실패했습니다. 주소창의 링크를 직접 복사해 주세요.");
+      }
+      document.body.removeChild(textArea);
+    });
+}
